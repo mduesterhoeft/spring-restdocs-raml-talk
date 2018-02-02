@@ -1,4 +1,4 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import static org.springframework.data.rest.webmvc.RestMediaTypes.TEXT_URI_LIST_VALUE;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.epages.springrestdocsramltalksample.CartResourceResourceAssembler.CartResource;
+import com.epages.sample.CartResourceResourceAssembler.CartResource;
 
 import lombok.RequiredArgsConstructor;
 

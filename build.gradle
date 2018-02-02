@@ -12,6 +12,10 @@ buildscript {
 	}
 }
 
+plugins {
+	id "org.asciidoctor.convert" version "1.5.6"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -27,8 +31,14 @@ repositories {
 	maven { url "https://repo.spring.io/milestone" }
 }
 
+ext {
+	snippetsDir = file('build/generated-snippets')
+}
+
+ext['spring-restdocs.version'] = '2.0.1.BUILD-SNAPSHOT'
 
 dependencies {
+	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${project.ext['spring-restdocs.version']}"
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	runtime('com.h2database:h2')
@@ -36,4 +46,20 @@ dependencies {
 	testCompileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+}
+
+test {
+	outputs.dir snippetsDir
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+jar {
+	dependsOn asciidoctor
+	from ("${asciidoctor.outputDir}/html5") {
+		into 'static/docs'
+	}
 }

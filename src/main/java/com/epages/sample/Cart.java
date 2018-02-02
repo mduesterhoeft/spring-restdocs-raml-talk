@@ -1,4 +1,4 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import static java.math.BigDecimal.ZERO;
 import static javax.persistence.GenerationType.IDENTITY;

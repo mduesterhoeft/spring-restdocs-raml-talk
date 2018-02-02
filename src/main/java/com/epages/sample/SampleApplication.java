@@ -1,12 +1,12 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringRestdocsRamlTalkSampleApplication {
+public class SampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringRestdocsRamlTalkSampleApplication.class, args);
+		SpringApplication.run(SampleApplication.class, args);
 	}
 }

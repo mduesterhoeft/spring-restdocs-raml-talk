@@ -1,4 +1,4 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PRIVATE;

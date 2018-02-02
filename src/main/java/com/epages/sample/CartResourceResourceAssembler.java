@@ -1,4 +1,4 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;

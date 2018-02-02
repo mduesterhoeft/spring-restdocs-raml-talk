@@ -1,4 +1,4 @@
-package com.epages.springrestdocsramltalksample;
+package com.epages.sample;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.Matchers.hasSize;
@@ -13,18 +13,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.hateoas.EntityLinks;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
@@ -34,28 +28,9 @@ import lombok.experimental.FieldDefaults;
 @SpringBootTest
 @FieldDefaults(level = PRIVATE)
 @RunWith(SpringRunner.class)
-public class ApiRestIntegrationTest {
+public class CartIntegrationTest extends BaseIntegrationTest {
 
-    @Autowired MockMvc mockMvc;
-
-    @Autowired ProductRepository productRepository;
-
-    @Autowired CartRepository cartsRepository;
-
-    @Autowired EntityLinks entityLinks;
-
-    ResultActions resultActions;
-
-    String json;
-
-    String productId;
     String cartId;
-
-    @Before
-    public void setUp() {
-        cartsRepository.deleteAll();
-        productRepository.deleteAll();
-    }
 
     @Test
     @SneakyThrows
@@ -93,46 +68,6 @@ public class ApiRestIntegrationTest {
         ;
     }
 
-    @Test
-    @SneakyThrows
-    public void should_get_products() {
-        givenProduct();
-
-        whenProductsAreRetrieved();
-
-        resultActions
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("_embedded.products", hasSize(1)))
-                .andExpect(jsonPath("_embedded.products[0].name", notNullValue()))
-        ;
-    }
-
-    @Test
-    @SneakyThrows
-    public void should_get_product() {
-        givenProduct();
-
-        whenProductIsRetrieved();
-
-        resultActions
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("name", notNullValue()))
-                .andExpect(jsonPath("price", notNullValue()))
-        ;
-    }
-
-    @Test
-    @SneakyThrows
-    public void should_create_product() {
-        givenProductPayload();
-
-        whenProductIsCreated();
-
-        resultActions
-                .andExpect(status().isCreated())
-        ;
-    }
-
     @SneakyThrows
     private void whenProductIsAddedToCart() {
         resultActions = mockMvc.perform(post("/carts/{id}/products", cartId)
@@ -155,15 +90,6 @@ public class ApiRestIntegrationTest {
                 .andDo(print());
     }
 
-    @SneakyThrows
-    private void whenProductIsCreated() {
-        resultActions = mockMvc.perform(post("/products")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(json));
-
-        String location = resultActions.andReturn().getResponse().getHeader(LOCATION);
-        productId = location.substring(location.lastIndexOf("/"));
-    }
 
     @SneakyThrows
     private void givenCart() {
@@ -178,26 +104,5 @@ public class ApiRestIntegrationTest {
         whenProductIsAddedToCart();
 
         resultActions.andExpect(status().isNoContent());
-    }
-    private void givenProductPayload() {
-        json = "{\n" +
-                "    \"name\": \"Fancy Product\",\n" +
-                "    \"price\": 12.0\n" +
-                "}";
-    }
-
-    @SneakyThrows
-    private void whenProductIsRetrieved() {
-        resultActions = mockMvc.perform(get("/products/{id}", productId));
-    }
-
-    @SneakyThrows
-    private void whenProductsAreRetrieved() {
-        resultActions = mockMvc.perform(get("/products"));
-    }
-
-    private void givenProduct() {
-        givenProductPayload();
-        whenProductIsCreated();
     }
 }

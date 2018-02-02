@@ -1,0 +1,17 @@
+= Spring REST Docs Sample API
+:doctype: book
+:toc: left
+:toclevels: 4
+:source-highlighter: highlightjs
+
+== Products
+
+=== Create a product
+
+=== Retrieve a product
+
+operation::products-get[]
+
+=== Retrieve products
+
+operation::product-get[]
