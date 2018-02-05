@@ -1,0 +1,13 @@
+== Carts
+
+=== Create a cart
+
+operation::carts-create[snippets='http-request,http-response']
+
+=== Get a cart
+
+operation::cart-get[snippets='http-request,http-response,response-fields,links']
+
+=== Add a product to a cart
+
+operation::cart-add-product[snippets='http-request,http-response']

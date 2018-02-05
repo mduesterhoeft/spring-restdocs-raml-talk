@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceSupport;
@@ -68,6 +70,7 @@ public class CartResourceResourceAssembler extends ResourceAssemblerSupport<Cart
     @Getter
     static class ProductLineItem extends ResourceSupport {
         private final int quantity;
+        @NotNull
         private final Product product;
     }
 }

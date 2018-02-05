@@ -1,0 +1,11 @@
+= Spring REST Docs Sample API
+:doctype: book
+:toc: left
+:toclevels: 4
+:source-highlighter: highlightjs
+:operation-http-request-title: Example request
+:operation-http-response-title: Example response
+
+include::products.adoc[]
+
+include::carts.adoc[]
