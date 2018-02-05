@@ -50,8 +50,10 @@ public class CartController {
         return cartRepository.findById(cartId)
                 .map(cart -> {
                     cart.setOrdered(true);
-                    return ResponseEntity.noContent().build();
-                }).orElse(ResponseEntity.notFound().build());
+                    return cartRepository.save(cart);
+                })
+                .map(c -> ResponseEntity.noContent().build())
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping(value = "/{cartId}/products", consumes = TEXT_URI_LIST_VALUE)

@@ -1,5 +1,7 @@
 package com.epages.sample;
 
+import static com.epages.restdocs.raml.RamlDocumentation.document;
+import static com.epages.restdocs.raml.RamlResourceDocumentation.ramlResource;
 import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -9,7 +11,6 @@ import static org.springframework.data.rest.webmvc.RestMediaTypes.TEXT_URI_LIST;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.links;
-import static com.epages.restdocs.raml.RamlDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -25,6 +26,8 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.epages.restdocs.raml.RamlResourceSnippetParameters;
 
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
@@ -60,7 +63,10 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-add-product"))
+                .andDo(document("cart-add-product", ramlResource(RamlResourceSnippetParameters
+                        .builder()
+                        .description("Add a product to the cart")
+                        .build())))
         ;
     }
 
@@ -94,6 +100,19 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         ;
     }
 
+    @Test
+    @SneakyThrows
+    public void should_order_cart() {
+        givenCartWithProduct();
+
+        whenCartIsOrdered();
+
+        resultActions
+                .andExpect(status().isNoContent())
+                .andDo(document("cart-order"))
+        ;
+    }
+
     @SneakyThrows
     private void whenProductIsAddedToCart() {
         resultActions = mockMvc.perform(post("/carts/{id}/products", cartId)
@@ -106,7 +125,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         resultActions = mockMvc.perform(post("/carts"));
 
         String location = resultActions.andReturn().getResponse().getHeader(LOCATION);
-        cartId = location.substring(location.lastIndexOf("/"));
+        cartId = location.substring(location.lastIndexOf("/") + 1);
     }
 
     @SneakyThrows
@@ -114,6 +133,11 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         resultActions = mockMvc.perform(get("/carts/{id}", cartId)
                 .accept(HAL_JSON))
                 .andDo(print());
+    }
+
+    @SneakyThrows
+    private void whenCartIsOrdered() {
+        resultActions = mockMvc.perform(post("/carts/{id}/order", cartId));
     }
 
 
