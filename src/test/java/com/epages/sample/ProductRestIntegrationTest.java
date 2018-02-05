@@ -11,6 +11,8 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWit
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -60,6 +62,11 @@ public class ProductRestIntegrationTest extends BaseIntegrationTest {
                                 linkWithRel("last").description("Link to the next page"),
                                 linkWithRel("self").ignored(),
                                 linkWithRel("profile").ignored()
+                        ),
+                        requestParameters(
+                                parameterWithName("page").description("The page to be requested."),
+                                parameterWithName("size").description("Parameter determining the size of the requested page."),
+                                parameterWithName("sort").description("Information about sorting items.")
                         )))
         ;
     }

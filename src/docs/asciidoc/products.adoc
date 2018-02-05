@@ -10,4 +10,4 @@ operation::product-get[snippets='http-request,http-response,response-fields']
 
 === Retrieve products
 
-operation::products-get[snippets='http-request,http-response,response-fields,links']
+operation::products-get[snippets='http-request,request-parameters,http-response,response-fields,links']
