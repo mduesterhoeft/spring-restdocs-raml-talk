@@ -4,22 +4,21 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
 	}
-}
-
-plugins {
-	id "org.asciidoctor.convert" version "1.5.6"
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.asciidoctor.convert'
 
 group = 'com.epages'
 version = '0.0.1-SNAPSHOT'
@@ -57,9 +56,6 @@ asciidoctor {
 	dependsOn test
 }
 
-jar {
-	dependsOn asciidoctor
-	from ("${asciidoctor.outputDir}/html5") {
-		into 'static/docs'
-	}
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.5'
 }

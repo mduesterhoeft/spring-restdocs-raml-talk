@@ -3,15 +3,19 @@
 :toc: left
 :toclevels: 4
 :source-highlighter: highlightjs
+:operation-http-request-title: Example request
+:operation-http-response-title: Example response
 
 == Products
 
 === Create a product
 
+operation::products-create[snippets='http-request,http-response,request-fields']
+
 === Retrieve a product
 
-operation::products-get[]
+operation::product-get[snippets='http-request,http-response,response-fields']
 
 === Retrieve products
 
-operation::product-get[]
+operation::products-get[snippets='http-request,http-response,response-fields,links']
