@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotEmpty;
 
 import org.springframework.hateoas.Identifiable;
 
@@ -29,7 +28,6 @@ public class Cart implements Identifiable<Long> {
     private Long id;
 
     @ManyToMany
-    @NotEmpty
     private List<Product> products = new ArrayList<>();
 
     @JsonIgnore

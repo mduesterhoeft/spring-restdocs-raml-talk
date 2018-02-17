@@ -1,6 +1,5 @@
 package com.epages.sample;
 
-import static com.epages.restdocs.raml.RamlDocumentation.document;
 import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -8,13 +7,8 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.data.rest.webmvc.RestMediaTypes.HAL_JSON;
 import static org.springframework.data.rest.webmvc.RestMediaTypes.TEXT_URI_LIST;
 import static org.springframework.http.HttpHeaders.LOCATION;
-import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
-import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.links;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
-import static org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,11 +23,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
-@AutoConfigureMockMvc
-@AutoConfigureRestDocs
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @FieldDefaults(level = PRIVATE)
-@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+@AutoConfigureRestDocs
 public class CartIntegrationTest extends BaseIntegrationTest {
 
     String cartId;
@@ -46,7 +40,6 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isCreated())
-                .andDo(document("carts-create"))
         ;
     }
 
@@ -60,7 +53,6 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-add-product"))
         ;
     }
 
@@ -77,20 +69,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("products[0].quantity", is(1)))
                 .andExpect(jsonPath("products[0].product.name", notNullValue()))
                 .andExpect(jsonPath("total", notNullValue()))
-                .andDo(document("cart-get",
-                        responseFields(
-                                fieldWithPath("total").description("Total amount of the cart."),
-                                fieldWithPath("products").description("The product line item of the cart."),
-                                subsectionWithPath("products[]._links.product").description("Link to the product."),
-                                fieldWithPath("products[].quantity").description("The quantity of the line item."),
-                                subsectionWithPath("products[].product").description("The product the line item relates to."),
-                                subsectionWithPath("_links").description("Links section.")
-                        ),
-                        links(
-                                linkWithRel("self").ignored(),
-                                linkWithRel("order").description("Link to order the cart.")
-                        )
-                ));
+        ;
     }
 
     @Test
@@ -102,7 +81,6 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-order"))
         ;
     }
 
