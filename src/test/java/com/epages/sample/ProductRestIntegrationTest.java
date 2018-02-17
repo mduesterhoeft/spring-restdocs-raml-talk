@@ -24,6 +24,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.epages.restdocs.raml.ConstrainedFields;
+
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
@@ -34,6 +36,7 @@ import lombok.experimental.FieldDefaults;
 @AutoConfigureRestDocs
 public class ProductRestIntegrationTest extends BaseIntegrationTest {
 
+    private ConstrainedFields fields = new ConstrainedFields(Product.class);
     @Test
     @SneakyThrows
     public void should_get_products() {
@@ -83,8 +86,8 @@ public class ProductRestIntegrationTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("name", notNullValue()))
                 .andExpect(jsonPath("price", notNullValue()))
                 .andDo(document("product-get", responseFields(
-                        fieldWithPath("name").description("The name of the product."),
-                        fieldWithPath("price").description("The price of the product."),
+                        fields.withPath("name").description("The name of the product."),
+                        fields.withPath("price").description("The price of the product."),
                         subsectionWithPath("_links").description("Links section")
                 )))
         ;
@@ -100,8 +103,8 @@ public class ProductRestIntegrationTest extends BaseIntegrationTest {
         resultActions
                 .andExpect(status().isCreated())
                 .andDo(document("products-create", requestFields(
-                        fieldWithPath("name").description("The name of the product."),
-                        fieldWithPath("price").description("The price of the product.")
+                        fields.withPath("name").description("The name of the product."),
+                        fields.withPath("price").description("The price of the product.")
                 )))
         ;
     }
