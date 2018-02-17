@@ -1,0 +1,7 @@
+- change imports
+- run test and show snippets
+- show ramlResource documentation option
+- run service
+- run console
+- show raml2html
+- shop API console
