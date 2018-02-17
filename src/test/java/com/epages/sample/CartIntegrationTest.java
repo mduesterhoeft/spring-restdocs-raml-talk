@@ -1,7 +1,6 @@
 package com.epages.sample;
 
 import static com.epages.restdocs.raml.RamlDocumentation.document;
-import static com.epages.restdocs.raml.RamlResourceDocumentation.ramlResource;
 import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -26,8 +25,6 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.epages.restdocs.raml.RamlResourceSnippetParameters;
 
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
@@ -63,10 +60,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-add-product", ramlResource(RamlResourceSnippetParameters
-                        .builder()
-                        .description("Add a product to the cart")
-                        .build())))
+                .andDo(document("cart-add-product"))
         ;
     }
 
@@ -96,8 +90,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
                                 linkWithRel("self").ignored(),
                                 linkWithRel("order").description("Link to order the cart.")
                         )
-                        ))
-        ;
+                ));
     }
 
     @Test

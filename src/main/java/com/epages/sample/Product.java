@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.hateoas.Identifiable;
 
@@ -32,5 +33,6 @@ public class Product implements Identifiable<Long> {
     @NotEmpty
     private String name;
 
+    @NotNull
     private BigDecimal price;
 }

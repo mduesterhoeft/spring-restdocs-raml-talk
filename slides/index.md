@@ -112,7 +112,7 @@ title: Hello world # required title
 
 ## Introducing restdocs-raml
 
-We built `restdocs-raml`
+We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 - to keep the benefits of Spring REST Docs
 - to get a RAML file for our API to process further
 

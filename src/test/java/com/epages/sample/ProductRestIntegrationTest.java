@@ -27,11 +27,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FieldDefaults(level = PRIVATE)
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs
-@SpringBootTest
-@FieldDefaults(level = PRIVATE)
-@RunWith(SpringRunner.class)
 public class ProductRestIntegrationTest extends BaseIntegrationTest {
 
     @Test
