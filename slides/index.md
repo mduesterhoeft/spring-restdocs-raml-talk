@@ -1,6 +1,6 @@
 ---
 title: RESTful API documentation with Spring REST Docs and RAML
-theme: white
+theme: black
 revealOptions:
     transition: 'fade'
 ---
@@ -28,7 +28,7 @@ revealOptions:
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Spring REST Docs Demo
+## Spring REST Docs demo
 
 ---
 
@@ -118,7 +118,8 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 
 ---
 
-<!-- .slide: data-background="assets/restdocs-raml.jpeg" -->
+<!-- .slide: data-background="assets/live-coding.jpeg" -->
+## restdocs-raml demo
 
 ---
 
