@@ -3,4 +3,6 @@
 - add document method
 - add carts.adoc
 - generate doc
-- add field and link documentation to get cart
+- switch to `restdocs-documented` branch
+- show response field and link documentation for cart-get
+- show assertions that restdocs gives us - we can remove the other assertion
