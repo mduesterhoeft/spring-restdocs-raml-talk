@@ -11,7 +11,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
-		classpath 'com.epages:restdocs-raml-gradle-plugin:0.2.10'
+		classpath 'com.epages:restdocs-raml-gradle-plugin:0.3.1'
 	}
 }
 
@@ -48,7 +48,7 @@ dependencies {
 	testCompileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-	testCompile 'com.epages:restdocs-raml:0.2.10'
+	testCompile 'com.epages:restdocs-raml:0.3.1'
 	testCompile 'org.json:json:20170516'
 }
 
