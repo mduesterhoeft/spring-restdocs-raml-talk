@@ -12,9 +12,9 @@ The slides are available in the [docs](docs/) folder on the `master` branch. The
 
 The `master` branch contains the initial state of the sample application.
 
-The [restdocs-documented](tree/restdocs-documented) branch contains the project documented with Spring REST Docs.
+The [restdocs-documented](https://github.com/mduesterhoeft/spring-restdocs-raml-talk/tree/restdocs-documented) branch contains the project documented with Spring REST Docs.
 
-The [restdocs-raml-documented](tree/restdocs-raml-documented) branch contains the project documented with Spring REST Docs and `restdocs-raml`. 
+The [restdocs-raml-documented](https://github.com/mduesterhoeft/spring-restdocs-raml-talk/tree/restdocs-documented) branch contains the project documented with Spring REST Docs and `restdocs-raml`. 
 
 ## Running the application
 
