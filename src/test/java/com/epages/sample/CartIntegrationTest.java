@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.data.rest.webmvc.RestMediaTypes.HAL_JSON;
 import static org.springframework.data.rest.webmvc.RestMediaTypes.TEXT_URI_LIST;
 import static org.springframework.http.HttpHeaders.LOCATION;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -40,6 +41,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isCreated())
+                .andDo(document("carts-create"))
         ;
     }
 
@@ -53,6 +55,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
+                .andDo(document("cart-add-product"))
         ;
     }
 
@@ -69,6 +72,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("products[0].quantity", is(1)))
                 .andExpect(jsonPath("products[0].product.name", notNullValue()))
                 .andExpect(jsonPath("total", notNullValue()))
+                .andDo(document("cart-get"))
         ;
     }
 
@@ -81,6 +85,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
+                .andDo(document("cart-order"))
         ;
     }
 

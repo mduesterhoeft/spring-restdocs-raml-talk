@@ -7,3 +7,5 @@
 :operation-http-response-title: Example response
 
 include::products.adoc[]
+
+include::carts.adoc[]
