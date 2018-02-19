@@ -119,7 +119,15 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## restdocs-raml demo
+## Apply restdocs-raml
+
+---
+
+## Conclusion
+
+- adding `restdocs-raml` to an existing project is easy
+- a RAML representation of an API gives us a lot of possibilities
+- we can leverage the tools available in the RAML ecosystem
 
 ---
 
