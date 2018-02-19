@@ -6,7 +6,7 @@ The talk shows why and how to use it.
 
 ## Presentation 
 
-The slides are available in the [docs](docs/) folder on the `master` branch. They are also available through github pages mduesterhoeft.github.io/spring-restdocs-raml-talk.
+The slides are available in the [docs](docs/) folder on the `master` branch. They are also available through github pages https://mduesterhoeft.github.io/spring-restdocs-raml-talk/
 
 ## Branches
 
