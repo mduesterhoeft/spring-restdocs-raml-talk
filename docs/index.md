@@ -6,7 +6,7 @@ revealOptions:
 ---
 
 <!-- .slide: data-background="assets/restdocs-raml.jpg" -->
-## Documenting RESTful APIs with Spring REST Docs and RAML
+## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="text-shadow: 3px 3px black;" -->
 
 ---
 
