@@ -1,6 +1,5 @@
 package com.epages.sample;
 
-import static com.epages.restdocs.raml.RamlDocumentation.document;
 import static com.epages.restdocs.raml.RamlResourceDocumentation.parameterWithName;
 import static com.epages.restdocs.raml.RamlResourceDocumentation.ramlResource;
 import static lombok.AccessLevel.PRIVATE;
@@ -11,6 +10,7 @@ import static org.springframework.data.rest.webmvc.RestMediaTypes.HAL_JSON;
 import static org.springframework.data.rest.webmvc.RestMediaTypes.TEXT_URI_LIST;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -24,7 +24,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.epages.restdocs.raml.RamlResourceSnippetParameters;
@@ -49,7 +48,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isCreated())
-                .andDo(document("carts-create"))
+                .andDo(document("carts-create", ramlResource("Create a cart")))
         ;
     }
 
@@ -63,7 +62,8 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-add-product"))
+                .andDo(document("cart-add-product",
+                        ramlResource("Add products to a cart")))
         ;
     }
 
@@ -80,7 +80,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
                 .andExpect(jsonPath("products[0].quantity", is(1)))
                 .andExpect(jsonPath("products[0].product.name", notNullValue()))
                 .andExpect(jsonPath("total", notNullValue()))
-                .andDo(MockMvcRestDocumentation.document("cart-get",
+                .andDo(document("cart-get",
                         ramlResource(
                                 RamlResourceSnippetParameters.builder()
                                         .description("Get a cart by id")
@@ -110,7 +110,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
 
         resultActions
                 .andExpect(status().isNoContent())
-                .andDo(document("cart-order"))
+                .andDo(document("cart-order", ramlResource("Order a cart")))
         ;
     }
 
