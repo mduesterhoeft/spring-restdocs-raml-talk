@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RESTful API documentation with Spring REST Docs and RAML</title>
+        <link rel="stylesheet" href="./css/reveal.css">
+        <link rel="stylesheet" href="./css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="./css/highlight/zenburn.css">
+        <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
+
+<!-- .slide: data-background="assets/restdocs-raml.jpg" -->
+## Documenting RESTful APIs with Spring REST Docs and RAML
+</script></section><section  data-markdown><script type="text/template">
+## About us - and the project
+
+- Online shop software
+- New ecommerce infrastructure based on microservices
+- API-first approach
+- Development in distributed teams
+</script></section><section  data-markdown><script type="text/template">
+## Why Spring REST Docs?
+
+- Uses a test-driven approach which guarantees accuracy
+- Uses Asciidoctor by default
+- Works with Spring MVC Test
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="assets/live-coding.jpeg" -->
+## Spring REST Docs demo
+</script></section><section  data-markdown><script type="text/template">
+## Can we pleaaaase...
+
+- Compile a complete documentation out of all these microservices projects?
+- Ensure that we just cover the public stuff?
+- Inform TechWriting about API changes?
+- Make sure that TechWriting can change property descriptions without touching the code?
+- Reuse content?
+- Generate realistic and consistent example responses?
+</script></section><section  data-markdown><script type="text/template">
+## Sure, we can!
+
+- One repository that composes all public documentation from the relevant microservices
+- Doc changes notifier via mail
+- Placeholders in centralised .yml files
+- Templates for https requests
+- .yml file in a centralised repository representing the test data that can be reused by all microservices
+</script></section><section  data-markdown><script type="text/template">
+## First milestones done
+
+Static API documentation available on our
+
+[developer portal](https://developer.epages.com)
+
+[http://docs.beyondshop.cloud](http://docs.beyondshop.cloud)
+
+Good starting point to work with partners.
+</script></section><section  data-markdown><script type="text/template">
+## We want more
+
+- `API first` means our API is part of our product
+- A good API is important for us
+- The documentation should be a nice appetizer to start using our product
+- We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
+- We need to go <!-- .element: class="fragment" --> **interactive** <!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+## Why RAML?
+
+- AsciiDoc as a markup language is hard to parse
+- It is hard to get any further than static HTML
+- A technical exchange format is what we need <!-- .element: class="fragment" -->
+- We already have experience with RAML <!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="assets/raml.png" -->
+</script></section><section  data-markdown><script type="text/template">
+## RAML by example
+
+```yaml
+#%RAML 1.0
+title: Hello world # required title
+
+/greeting: # optional resource
+  get: # HTTP method declaration
+    responses: # declare a response
+      200: # HTTP status code
+        body: # declare content of response
+          application/json: # media type
+            # structural definition of a response (schema or type)
+            type: object
+            properties:
+              message: string
+            example: # example how a response looks like
+              message: "Hello world"
+```
+</script></section><section  data-markdown><script type="text/template">
+## Introducing restdocs-raml
+
+We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
+- to keep the benefits of Spring REST Docs
+- to get a RAML file for our API to process further
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="assets/live-coding.jpeg" -->
+## Apply restdocs-raml
+</script></section><section  data-markdown><script type="text/template">
+## Conclusion
+
+- adding `restdocs-raml` to an existing project is easy
+- a RAML representation of an API gives us a lot of possibilities
+- we can leverage the tools available in the RAML ecosystem
+</script></section><section  data-markdown><script type="text/template">
+## Thanks for your attention
+
+Questions?
+</script></section></div>
+        </div>
+
+        <script src="./lib/js/head.min.js"></script>
+        <script src="./js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: './plugin/zoom-js/zoom.js', async: true },
+              { src: './plugin/notes/notes.js', async: true },
+              { src: './plugin/math/math.js', async: true }
+            ];
+
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default', // none/fade/slide/convex/concave/zoom
+              dependencies: deps
+            };
+
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+
+            var options = {"transition":"fade"};
+            options = extend(defaultOptions, options, queryOptions);
+        </script>
+
+
+        <script>
+            Reveal.initialize(options);
+        </script>
+    </body>
+</html>
