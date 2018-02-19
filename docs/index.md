@@ -28,7 +28,7 @@ revealOptions:
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Spring REST Docs demo
+## Spring REST Docs demo <!-- .element: style="text-shadow: 3px 3px black;" -->
 
 ---
 
@@ -119,7 +119,7 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Apply restdocs-raml
+## Apply restdocs-raml <!-- .element: style="text-shadow: 3px 3px black;" -->
 
 ---
 
