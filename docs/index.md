@@ -46,9 +46,8 @@ revealOptions:
 ## Sure, we can!
 
 - One repository that composes all public documentation from the relevant microservices
-- Doc changes notifier via mail
 - Placeholders in centralised .yml files
-- Templates for https requests
+- Doc changes notifier via mail
 - .yml file in a centralised repository representing the test data that can be reused by all microservices
 
 ---
