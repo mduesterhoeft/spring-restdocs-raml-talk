@@ -3,6 +3,7 @@ title: RESTful API documentation with Spring REST Docs and RAML
 theme: black
 revealOptions:
     transition: 'fade'
+showSlideNumber: true    
 ---
 
 <!-- .slide: data-background="assets/restdocs-raml.jpg" -->
@@ -16,6 +17,8 @@ revealOptions:
 - New ecommerce infrastructure based on microservices
 - API-first approach
 - Development in distributed teams
+
+<img src="assets/epages-white.png" style="border:none; box-shadow:none; background:none" />
 
 ---
 
@@ -76,7 +79,7 @@ Good starting point to work with partners.
 
 ## Why RAML?
 
-- AsciiDoc as a markup language is hard to parse
+- AsciiDoc as a markup language is hard to process
 - It is hard to get any further than static HTML
 - A technical exchange format is what we need <!-- .element: class="fragment" -->
 - We already have experience with RAML <!-- .element: class="fragment" -->
@@ -112,8 +115,12 @@ title: Hello world # required title
 ## Introducing restdocs-raml
 
 We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
-- to keep the benefits of Spring REST Docs
-- to get a RAML file for our API to process further
+- To keep the benefits of Spring REST Docs
+- To get a RAML file for our API to process further
+
+---
+
+<!-- .slide: data-background="assets/restdocs-raml-repo.png" style="align:top" -->
 
 ---
 
@@ -124,9 +131,18 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 
 ## Conclusion
 
-- adding `restdocs-raml` to an existing project is easy
-- a RAML representation of an API gives us a lot of possibilities
-- we can leverage the tools available in the RAML ecosystem
+- Adding  restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
+- A RAML representation of an API opens lots of possibilities <!-- .element: class="fragment" -->
+- Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
+
+---
+
+## Reference
+
+- Slides https://mduesterhoeft.github.io/spring-restdocs-raml-talk/
+- `restdocs-raml` https://github.com/ePages-de/restdocs-raml
+- Sample project https://github.com/mduesterhoeft/spring-restdocs-raml-talk
+
 
 ---
 
