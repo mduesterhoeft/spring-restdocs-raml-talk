@@ -47,11 +47,38 @@ showSlideNumber: true
 ---
 
 ## Sure, we can!
+### Aggregate service documentation
 
-- One repository that composes all public documentation from the relevant microservices
-- Placeholders in centralised .yml files
-- Doc changes notifier via mail
-- .yml file in a centralised repository representing the test data that can be reused by all microservices
+Q: Compile a complete documentation out of all these microservices projects?
+
+A: One repository that composes all public documentation from the relevant microservices
+
+---
+
+## Sure, we can!
+### Externalize texts from tests
+
+Q: Can TechWriting change property descriptions without touching the code?
+
+A: Put texts into centralized yml files in `src/docs`
+
+---
+
+## Sure, we can!
+### TechWriting process
+
+Q: Inform TechWriting about API changes?
+
+A: TechWriting owns content in `src/docs` in every service and is notified about .changes
+
+---
+
+## Sure, we can!
+### Consistent test data
+
+Q: Generate realistic and consistent example responses?
+
+A: In documenting tests we use a test data catalog defined by TechWriting.
 
 ---
 
