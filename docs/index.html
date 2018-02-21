@@ -23,6 +23,8 @@
 - New ecommerce infrastructure based on microservices
 - API-first approach
 - Development in distributed teams
+
+<img src="assets/epages-white.png" style="border:none; box-shadow:none; background:none" />
 </script></section><section  data-markdown><script type="text/template">
 ## Why Spring REST Docs?
 
@@ -43,11 +45,32 @@
 - Generate realistic and consistent example responses?
 </script></section><section  data-markdown><script type="text/template">
 ## Sure, we can!
+### Aggregate service documentation
 
-- One repository that composes all public documentation from the relevant microservices
-- Placeholders in centralised .yml files
-- Doc changes notifier via mail
-- .yml file in a centralised repository representing the test data that can be reused by all microservices
+Q: Compile a complete documentation out of all these microservices projects?
+
+A: One repository that composes all public documentation from the relevant microservices
+</script></section><section  data-markdown><script type="text/template">
+## Sure, we can!
+### Externalize texts from tests
+
+Q: Can TechWriting change property descriptions without touching the code?
+
+A: Put texts into centralized yml files in `src/docs`
+</script></section><section  data-markdown><script type="text/template">
+## Sure, we can!
+### TechWriting process
+
+Q: Inform TechWriting about API changes?
+
+A: TechWriting owns content in `src/docs` in every service and is notified about .changes
+</script></section><section  data-markdown><script type="text/template">
+## Sure, we can!
+### Consistent test data
+
+Q: Generate realistic and consistent example responses?
+
+A: In documenting tests we use a test data catalog defined by TechWriting.
 </script></section><section  data-markdown><script type="text/template">
 ## First milestones done
 
@@ -69,7 +92,7 @@ Good starting point to work with partners.
 </script></section><section  data-markdown><script type="text/template">
 ## Why RAML?
 
-- AsciiDoc as a markup language is hard to parse
+- AsciiDoc as a markup language is hard to process
 - It is hard to get any further than static HTML
 - A technical exchange format is what we need <!-- .element: class="fragment" -->
 - We already have experience with RAML <!-- .element: class="fragment" -->
@@ -99,17 +122,26 @@ title: Hello world # required title
 ## Introducing restdocs-raml
 
 We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
-- to keep the benefits of Spring REST Docs
-- to get a RAML file for our API to process further
+- To keep the benefits of Spring REST Docs
+- To get a RAML file for our API to process further
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="assets/restdocs-raml-repo.png" style="align:top" -->
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
 ## Apply restdocs-raml <!-- .element: style="text-shadow: 3px 3px black;" -->
 </script></section><section  data-markdown><script type="text/template">
 ## Conclusion
 
-- adding `restdocs-raml` to an existing project is easy
-- a RAML representation of an API gives us a lot of possibilities
-- we can leverage the tools available in the RAML ecosystem
+- Adding  restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
+- A RAML representation of an API opens lots of possibilities <!-- .element: class="fragment" -->
+- Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+## Reference
+
+- Slides https://mduesterhoeft.github.io/spring-restdocs-raml-talk/
+- `restdocs-raml` https://github.com/ePages-de/restdocs-raml
+- Sample project https://github.com/mduesterhoeft/spring-restdocs-raml-talk
+
 </script></section><section  data-markdown><script type="text/template">
 ## Thanks for your attention
 
