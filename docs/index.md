@@ -64,14 +64,6 @@ Put texts into centralized yml files in `src/docs`.
 
 ---
 
-## Reusing content would be awesome! Can we, please?
-
----
-
-## Answer Mathias tbd
-
----
-
 ## Can we generate realistic and consistent example responses?
 
 ---
