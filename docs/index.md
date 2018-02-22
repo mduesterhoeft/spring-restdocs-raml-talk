@@ -11,14 +11,8 @@ showSlideNumber: true
 
 ---
 
-## About us - and the project
-
-- Online shop software
-- New ecommerce infrastructure based on microservices
-- API-first approach
-- Development in distributed teams
-
-<img src="assets/epages-white.png" style="border:none; box-shadow:none; background:none" />
+<!-- .slide: data-background="assets/about-us.jpg" -->
+<!-- .element: style="text-shadow: 3px 3px black;" -->
 
 ---
 
@@ -35,79 +29,82 @@ showSlideNumber: true
 
 ---
 
-## Can we pleaaaase...
-
-- Compile a complete documentation out of all these microservices projects?
-- Ensure that we just cover the public stuff?
-- Inform TechWriting about API changes?
-- Make sure that TechWriting can change property descriptions without touching the code?
-- Reuse content?
-- Generate realistic and consistent example responses?
+<!-- .slide: data-background="assets/dream.jpg" -->
+## TechWriters have dreams <!-- .element: style="text-shadow: 3px 3px black;" -->
 
 ---
 
-## Sure, we can!
-### Aggregate service documentation
-
-Q: Compile a complete documentation out of all these microservices projects?
-
-A: One repository that composes all public documentation from the relevant microservices
+## Can we compile a complete documentation?
 
 ---
 
-## Sure, we can!
-### Externalize texts from tests
+##  Aggregate service documentation
 
-Q: Can TechWriting change property descriptions without touching the code?
-
-A: Put texts into centralized yml files in `src/docs`
+One repository that composes all public documentation from the relevant microservices
 
 ---
 
-## Sure, we can!
-### TechWriting process
-
-Q: Inform TechWriting about API changes?
-
-A: TechWriting owns content in `src/docs` in every service and is notified about .changes
+## I'd love to be informed about API changes...
 
 ---
 
-## Sure, we can!
-### Consistent test data
+## Notification via email
 
-Q: Generate realistic and consistent example responses?
-
-A: In documenting tests we use a test data catalog defined by TechWriting.
+TechWriting owns content in `src/docs` in every service and is notified about .changes
 
 ---
 
-## First milestones done
+## I'd like to change descriptions without touching the code...
 
-Static API documentation available on our
+---
 
+## Externalize texts from tests
+
+Put texts into centralized yml files in `src/docs`.
+
+---
+
+## Reusing content would be awesome! Can we, please?
+
+---
+
+## Answer Mathias tbd
+
+---
+
+## Can we generate realistic and consistent example responses?
+
+---
+
+## Consistent test data
+
+- In documenting tests, we use a test data catalog defined by TechWriting.
+- Centralized yml files.
+
+---
+
+<!-- .slide: data-background="assets/achievements.jpg" -->
+## First achievements <!-- .element: style="text-shadow: 3px 3px black;" -->
+
+- [Static API documentation](http://docs.beyondshop.cloud/) available on our
 [developer portal](https://developer.epages.com)
-
-[http://docs.beyondshop.cloud](http://docs.beyondshop.cloud)
-
-Good starting point to work with partners.
+- Good starting point to work with partners
 
 ---
 
-## We want more
+<!-- .slide: data-background="assets/more.jpg" -->
+## We want more <!-- .element: style="text-shadow: 3px 3px black;" -->
 
-- `API first` means our API is part of our product
-- A good API is important for us
-- The documentation should be a nice appetizer to start using our product
+- API docs should be a nice appetizer to start using our product <!-- .element: class="fragment" -->
 - We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
-- We need to go <!-- .element: class="fragment" --> **interactive** <!-- .element: class="fragment" -->
+- <!-- .element: class="fragment" --> We need to go **interactive**!
 
 ---
 
 ## Why RAML?
 
-- AsciiDoc as a markup language is hard to process
-- It is hard to get any further than static HTML
+- AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
+- It is hard to get any further than static HTML <!-- .element: class="fragment" -->
 - A technical exchange format is what we need <!-- .element: class="fragment" -->
 - We already have experience with RAML <!-- .element: class="fragment" -->
 
