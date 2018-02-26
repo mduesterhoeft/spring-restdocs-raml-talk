@@ -3,7 +3,6 @@ title: RESTful API documentation with Spring REST Docs and RAML
 theme: black
 revealOptions:
     transition: 'fade'
-showSlideNumber: true    
 ---
 
 <!-- .slide: data-background="assets/restdocs-raml.jpg" -->
@@ -11,8 +10,7 @@ showSlideNumber: true
 
 ---
 
-<!-- .slide: data-background="assets/about-us.jpg" -->
-<!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/about-us.png" -->
 
 ---
 
