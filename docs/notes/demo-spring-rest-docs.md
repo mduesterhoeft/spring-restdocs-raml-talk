@@ -1,3 +1,7 @@
+Preparation:
+- reset branch
+- clean
+
 - project overview (controller, model)
 - Cart test
 - add document method
