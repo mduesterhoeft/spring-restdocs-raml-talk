@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RC1'
+		springBootVersion = '2.0.0.RC2'
 	}
 	repositories {
 		mavenCentral()
@@ -37,10 +37,8 @@ ext {
 	snippetsDir = file('build/generated-snippets')
 }
 
-ext['spring-restdocs.version'] = '2.0.0.RELEASE'
-
 dependencies {
-	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${project.ext['spring-restdocs.version']}"
+	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor"
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	runtime('com.h2database:h2')
