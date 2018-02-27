@@ -153,9 +153,14 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 
 ## Reference
 
-- Slides https://mduesterhoeft.github.io/spring-restdocs-raml-talk/
-- `restdocs-raml` https://github.com/ePages-de/restdocs-raml
-- Sample project https://github.com/mduesterhoeft/spring-restdocs-raml-talk
+<i class="fab fa-github"></i> Slides<br />
+https://mduesterhoeft.github.io/spring-restdocs-raml-talk
+
+<i class="fab fa-github"></i> Sample project<br />
+https://github.com/mduesterhoeft/spring-restdocs-raml-talk
+
+<i class="fab fa-github"></i> restdocs-raml<br />
+https://github.com/ePages-de/restdocs-raml
 
 
 ---
@@ -163,3 +168,6 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 ## Thanks for your attention
 
 Questions?
+
+
+<a href="https://twitter.com/epagesdevs"><i class="fab fa-twitter"></i> @epagesdevs</a>
