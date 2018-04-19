@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RC2'
+		springBootVersion = '2.0.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -11,7 +11,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
-		classpath 'com.epages:restdocs-raml-gradle-plugin:0.3.1'
+		classpath 'com.epages:restdocs-raml-gradle-plugin:0.4.0'
 	}
 }
 
@@ -46,7 +46,7 @@ dependencies {
 	testCompileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-	testCompile 'com.epages:restdocs-raml:0.3.1'
+	testCompile 'com.epages:restdocs-raml:0.4.0'
 	testCompile 'org.json:json:20170516'
 }
 
