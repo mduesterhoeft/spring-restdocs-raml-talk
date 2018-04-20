@@ -11,3 +11,13 @@ operation::product-get[snippets='http-request,http-response,response-fields']
 === Retrieve products
 
 operation::products-get[snippets='http-request,request-parameters,http-response,response-fields,links']
+
+=== Update a product
+
+A patch request can be used to partially update a product.
+
+The update can be expressed in `application/json` or `application/json-patch+json`
+
+operation::product-patch[snippets='http-request']
+
+operation::product-patch-json-patch[snippets='http-request']
