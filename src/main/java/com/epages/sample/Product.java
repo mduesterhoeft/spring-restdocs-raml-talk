@@ -10,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.springframework.hateoas.Identifiable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -31,8 +33,11 @@ public class Product implements Identifiable<Long> {
     private Long id;
 
     @NotEmpty
+    @Setter
     private String name;
 
     @NotNull
+    @Setter
+    @Positive
     private BigDecimal price;
 }
