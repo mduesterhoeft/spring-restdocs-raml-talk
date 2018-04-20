@@ -4,9 +4,12 @@ import static com.epages.restdocs.raml.RamlDocumentation.document;
 import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.springframework.data.rest.webmvc.RestMediaTypes.JSON_PATCH_JSON;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.links;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.patch;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
@@ -19,12 +22,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.epages.restdocs.raml.ConstrainedFields;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
@@ -35,6 +42,9 @@ import lombok.experimental.FieldDefaults;
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs
 public class ProductRestIntegrationTest extends BaseIntegrationTest {
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     private ConstrainedFields fields = new ConstrainedFields(Product.class);
     @Test
@@ -109,9 +119,87 @@ public class ProductRestIntegrationTest extends BaseIntegrationTest {
         ;
     }
 
+    @Test
+    @SneakyThrows
+    public void should_update_product() {
+        givenProduct();
+        givenProductPayload("Updated name", "12.12");
+
+        whenProductIsPatched();
+
+        resultActions
+                .andExpect(status().isOk())
+                .andDo(document("product-patch", requestFields(
+                        fields.withPath("name").description("The name of the product."),
+                        fields.withPath("price").description("The price of the product.")
+                )))
+        ;
+    }
+
+    @Test
+    @SneakyThrows
+    public void should_fail_to_update_product_with_negative_price() {
+        givenProduct();
+        givenProductPayload("Updated name", "-12.12");
+
+        whenProductIsPatched();
+
+        resultActions
+                .andExpect(status().isBadRequest())
+                .andDo(document("product-patch-constraint-violation"))
+        ;
+    }
+
+    @Test
+    @SneakyThrows
+    public void should_partially_update_product() {
+        givenProduct();
+        givenPatchPayload();
+
+        whenProductIsPatchedJsonPatch();
+
+        resultActions
+                .andExpect(status().isOk())
+                .andDo(document("product-patch-json-patch", requestFields(
+                        fields.withPath("[].op").description("Patch operation."),
+                        fields.withPath("[].path").description("The path of the field."),
+                        fields.withPath("[].value").description("The value to assign.")
+                )))
+        ;
+    }
+
+    @SneakyThrows
+    private void givenPatchPayload() {
+        json = objectMapper.writeValueAsString(
+                ImmutableList.of(
+                        ImmutableMap.of(
+                                "op", "replace",
+                                "path", "/name",
+                                "value", "Fancy socks"
+                        )
+                )
+        );
+    }
+
     @SneakyThrows
     private void whenProductIsRetrieved() {
         resultActions = mockMvc.perform(get("/products/{id}", productId));
+    }
+
+    @SneakyThrows
+    private void whenProductIsPatched() {
+        resultActions = mockMvc.perform(patch("/products/{id}", productId)
+                .contentType(APPLICATION_JSON)
+                .accept(APPLICATION_JSON)
+                .content(json));
+    }
+
+    @SneakyThrows
+    private void whenProductIsPatchedJsonPatch() {
+        resultActions = mockMvc.perform(patch("/products/{id}", productId)
+                .contentType(JSON_PATCH_JSON)
+                .accept(APPLICATION_JSON)
+                .content(json));
     }
 
     @SneakyThrows
