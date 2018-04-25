@@ -1,16 +1,15 @@
 ---
 title: RESTful API documentation with Spring REST Docs and RAML
-theme: black
+theme: white   
 revealOptions:
     transition: 'fade'
 ---
 
-<!-- .slide: data-background="assets/restdocs-raml.jpg" -->
-## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/title.png" -->
 
 ---
 
-<!-- .slide: data-background="assets/about-us.png" -->
+## it's epages
 
 ---
 
@@ -23,46 +22,34 @@ revealOptions:
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Spring REST Docs demo <!-- .element: style="text-shadow: 3px 3px black;" -->
+## Spring REST Docs demo <!-- .element: style="color: white;" -->
 
 ---
 
-<!-- .slide: data-background="assets/dream.jpg" -->
-## TechWriters have dreams <!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/towards-public-api-doc.jpg" -->
+## Towards a public API documentation <!-- .element: style="color: white;" -->
+
+Note:
+- different challenges
+- bring tech writers in
 
 ---
 
-## Can we compile a complete documentation?
+## Bring tech writers in
+
+- Tech writers should not edit descriptions in tests directly.
+- Use externalized descriptors.
+- Centralized yml files in `src/docs`.
 
 ---
 
-##  Aggregate service documentation
+##  Aggregate documentation
 
-One repository that composes all public documentation from the relevant microservices
+- One repository that composes all public documentation from the relevant microservices
 
----
-
-## I'd love to be informed about API changes...
-
----
-
-## Notification via email
-
-TechWriting owns content in `src/docs` in every service and is notified about .changes
-
----
-
-## I'd like to change descriptions without touching the code...
-
----
-
-## Externalize texts from tests
-
-Put texts into centralized yml files in `src/docs`.
-
----
-
-## Can we generate realistic and consistent example responses?
+Note:
+- each service emits documentation
+- how can we aggregate?
 
 ---
 
@@ -74,16 +61,23 @@ Put texts into centralized yml files in `src/docs`.
 ---
 
 <!-- .slide: data-background="assets/achievements.jpg" -->
-## First achievements <!-- .element: style="text-shadow: 3px 3px black;" -->
+## First achievements <!-- .element: style="color:white;" -->
 
-- [Static API documentation](http://docs.beyondshop.cloud/) available on our
-[developer portal](https://developer.epages.com)
+---
+
+## First achievements
+
+- [Static API documentation](http://docs.beyondshop.cloud/) available on our [developer portal](https://developer.epages.com)
 - Good starting point to work with partners
 
 ---
 
 <!-- .slide: data-background="assets/more.jpg" -->
-## We want more <!-- .element: style="text-shadow: 3px 3px black;" -->
+## We want to go further <!-- .element: style="color:white;" -->
+
+---
+
+## We want to go further
 
 - API docs should be a nice appetizer to start using our product <!-- .element: class="fragment" -->
 - We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
@@ -96,7 +90,6 @@ Put texts into centralized yml files in `src/docs`.
 - AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
 - It is hard to get any further than static HTML <!-- .element: class="fragment" -->
 - A technical exchange format is what we need <!-- .element: class="fragment" -->
-- We already have experience with RAML <!-- .element: class="fragment" -->
 
 ---
 
@@ -139,14 +132,14 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Apply restdocs-raml <!-- .element: style="text-shadow: 3px 3px black;" -->
+## restdocs-raml demo <!-- .element: style="color: white;" -->
 
 ---
 
 ## Conclusion
 
-- Adding  restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
-- A RAML representation of an API opens lots of possibilities <!-- .element: class="fragment" -->
+- Adding restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
+- A RAML representation of an API opens a lot of new possibilities <!-- .element: class="fragment" -->
 - Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
 
 ---
@@ -169,5 +162,8 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
+<i class="fab fa-twitter"></i><a href="https://twitter.com/zaddo"> @zaddo</a>
 
-<a href="https://twitter.com/epagesdevs"><i class="fab fa-twitter"></i> @epagesdevs</a>
+<i class="fab fa-twitter"></i><a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
+
+<i class="fab fa-gitter"></i><a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>
