@@ -38,7 +38,21 @@ Note:
 
 ## Bring tech writers in
 
-- Tech writers should not edit descriptions in tests directly.
+- Tech writers should not have to edit descriptions in tests
+
+
+```java
+.andDo(document("product-get", 
+  responseFields(
+    fieldWithPath("name")
+      .description("The name of the product."),
+    fieldWithPath("price")
+      .description("The price of the product.")
+   )
+ ));
+```
+
+Note:
 - Use externalized descriptors.
 
 ---
@@ -51,7 +65,7 @@ Note:
     fieldWithPath("returnUri", "createPayment.returnUri"),
     fieldWithPath("cancelUri", "createPayment.cancelUri")),
   responseFields(
-    fieldWithPath("approvalUri", "createPayment.approvalUri"))))
+    fieldWithPath("approvalUri", "createPayment.approvalUri"))));
 ```
 
 ```yaml
@@ -77,9 +91,9 @@ createPayment.approvalUri:
 
 Note:
 - each service emits documentation
-- how can we aggregate?
+- how can we aggregate this into a single consistent api documentation which is always up-to-date
 
-<!--v-->
+---
 
 ## Aggregate documentation
 
@@ -116,11 +130,11 @@ Notes:
 
 ---
 
-## Why RAML?
+## A machine readable API description?
 
 - AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
 - It is hard to get any further than static HTML <!-- .element: class="fragment" -->
-- A technical exchange format is what we need <!-- .element: class="fragment" -->
+- A machine readable format is what we need <!-- .element: class="fragment" -->
 
 ---
 
@@ -154,7 +168,7 @@ title: Hello world # required title
 
 We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 - To keep the benefits of Spring REST Docs
-- To get a RAML file for our API to process further
+- To get a RAML description of our API
 
 ---
 
