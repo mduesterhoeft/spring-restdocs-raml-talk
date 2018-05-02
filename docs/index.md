@@ -1,6 +1,7 @@
 ---
 title: RESTful API documentation with Spring REST Docs and RAML
 theme: white   
+verticalSeparator: <!--v-->
 revealOptions:
     transition: 'fade'
 ---
@@ -9,15 +10,15 @@ revealOptions:
 
 ---
 
-## it's epages
+<!-- .slide: data-background="assets/epages.png" -->
 
 ---
 
 ## Why Spring REST Docs?
 
-- Uses a test-driven approach which guarantees accuracy
-- Uses Asciidoctor by default
-- Works with Spring MVC Test
+- Takes a test-driven approach which guarantees accuracy <!-- .element: class="fragment" -->
+- Uses Asciidoctor by default <!-- .element: class="fragment" -->
+- Works with Spring MVC Test <!-- .element: class="fragment" -->
 
 ---
 
@@ -39,11 +40,38 @@ Note:
 
 - Tech writers should not edit descriptions in tests directly.
 - Use externalized descriptors.
-- Centralized yml files in `src/docs`.
 
 ---
 
-##  Aggregate documentation
+### Externalize descriptors
+
+```java
+.andDo(document("cart-create-payment",
+  requestFields(
+    fieldWithPath("returnUri", "createPayment.returnUri"),
+    fieldWithPath("cancelUri", "createPayment.cancelUri")),
+  responseFields(
+    fieldWithPath("approvalUri", "createPayment.approvalUri"))))
+```
+
+```yaml
+createPayment.returnUri:
+  description: The redirect URI after successful payment authorization.
+createPayment.cancelUri:
+  description: The redirect URI if the payment authorization was not successful.
+createPayment.approvalUri:
+  description: The URI used to approve the payment. The client has to redirect to this URI to initiate the approval.
+```
+
+---
+
+### Consistent test data
+
+- In documenting tests, we use a test data catalog defined by TechWriting
+
+---
+
+## Aggregate documentation
 
 - One repository that composes all public documentation from the relevant microservices
 
@@ -51,12 +79,17 @@ Note:
 - each service emits documentation
 - how can we aggregate?
 
----
+<!--v-->
 
-## Consistent test data
+## Aggregate documentation
 
-- In documenting tests, we use a test data catalog defined by TechWriting.
-- Centralized yml files.
+<img src="assets/aggregate-api-doc.svg" style="border:none;box-shadow:none;" />
+
+Note:
+- on master build emit a separate jar containing snippets and hand-written documentation from each service
+- aggregate the jars relevant for public api doc in the cdp
+- for asciidoc there is an enclosing assiidoctor file referencing parts from the jar
+- publish api doc
 
 ---
 
@@ -75,13 +108,11 @@ Note:
 <!-- .slide: data-background="assets/more.jpg" -->
 ## We want to go further <!-- .element: style="color:white;" -->
 
----
-
-## We want to go further
-
-- API docs should be a nice appetizer to start using our product <!-- .element: class="fragment" -->
-- We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
-- <!-- .element: class="fragment" --> We need to go **interactive**!
+Notes:
+- We need to add use case based documentation
+- API docs should be a nice appetizer to start using our product
+- We cannot achieve this with a static documentation
+- We need to go **interactive**!
 
 ---
 
