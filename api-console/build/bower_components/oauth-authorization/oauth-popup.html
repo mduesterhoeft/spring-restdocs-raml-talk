@@ -6,6 +6,7 @@
     <style>*[hidden] { display: none; } </style>
   </head>
   <body>
+    <h1>Sending authorization data to the application</h1>
     <p id="general-error" hidden>
       The window wasn't opened as a popup and therefore it can't pass authorization information.<br/>
       This is an error.
@@ -14,7 +15,7 @@
     var $ = function(selector, target) {
       return (target || document).querySelector(selector);
     };
-    var messageTarget = (window.opener || window.top);
+    var messageTarget = (window.opener || window.parent || window.top);
 
     var Auth = {
       init: function() {
@@ -46,22 +47,13 @@
           params[name] = decodeURIComponent(item[1]);
           params[origName] = decodeURIComponent(item[1]);
         });
-        var origin;
-        try {
-          if ('origin' in messageTarget.location) {
-            origin = messageTarget.location.origin;
-          }
-        } catch (e) {
-          // This will happen when the popup is in different domain
-          // (port, host, scheme)
-          origin = '*';
-        }
-        messageTarget.postMessage(params, origin);
+        messageTarget.postMessage(params, '*');
       }
     };
     if (!messageTarget || !messageTarget.postMessage) {
       var elm = $('#general-error');
       elm.removeAttribute('hidden');
+      console.error('Cannot post message to target window.');
     } else {
       Auth.init();
     }
