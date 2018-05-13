@@ -1,102 +1,140 @@
 ---
 title: RESTful API documentation with Spring REST Docs and RAML
-theme: black
+theme: white   
+verticalSeparator: <!--v-->
 revealOptions:
     transition: 'fade'
 ---
 
-<!-- .slide: data-background="assets/restdocs-raml.jpg" -->
-## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/title.png" -->
 
 ---
 
-<!-- .slide: data-background="assets/about-us.png" -->
+<!-- .slide: data-background="assets/epages.png" -->
 
 ---
 
 ## Why Spring REST Docs?
 
-- Uses a test-driven approach which guarantees accuracy
-- Uses Asciidoctor by default
-- Works with Spring MVC Test
+- Takes a test-driven approach which guarantees accuracy <!-- .element: class="fragment" -->
+- Uses Asciidoctor by default <!-- .element: class="fragment" -->
+- Works with Spring MVC Test <!-- .element: class="fragment" -->
 
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Spring REST Docs demo <!-- .element: style="text-shadow: 3px 3px black;" -->
+## Spring REST Docs demo <!-- .element: style="color: white;" -->
 
 ---
 
-<!-- .slide: data-background="assets/dream.jpg" -->
-## TechWriters have dreams <!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/towards-public-api-doc.jpg" -->
+## Towards a public API documentation <!-- .element: style="color: white;" -->
+
+Note:
+- different challenges
+- bring tech writers in
 
 ---
 
-## Can we compile a complete documentation?
+## Bring tech writers in
+
+- Tech writers should not have to edit descriptions in tests
+
+
+```java
+.andDo(document("product-get", 
+  responseFields(
+    fieldWithPath("name")
+      .description("The name of the product."),
+    fieldWithPath("price")
+      .description("The price of the product.")
+   )
+ ));
+```
+
+Note:
+- Use externalized descriptors.
 
 ---
 
-##  Aggregate service documentation
+### Externalize descriptors
 
-One repository that composes all public documentation from the relevant microservices
+```java
+.andDo(document("cart-create-payment",
+  requestFields(
+    fieldWithPath("returnUri", "createPayment.returnUri"),
+    fieldWithPath("cancelUri", "createPayment.cancelUri")),
+  responseFields(
+    fieldWithPath("approvalUri", "createPayment.approvalUri"))));
+```
 
----
-
-## I'd love to be informed about API changes...
-
----
-
-## Notification via email
-
-TechWriting owns content in `src/docs` in every service and is notified about .changes
-
----
-
-## I'd like to change descriptions without touching the code...
-
----
-
-## Externalize texts from tests
-
-Put texts into centralized yml files in `src/docs`.
+```yaml
+createPayment.returnUri:
+  description: The redirect URI after successful payment authorization.
+createPayment.cancelUri:
+  description: The redirect URI if the payment authorization was not successful.
+createPayment.approvalUri:
+  description: The URI used to approve the payment. The client has to redirect to this URI to initiate the approval.
+```
 
 ---
 
-## Can we generate realistic and consistent example responses?
+### Consistent test data
+
+- In documenting tests, we use a test data catalog defined by TechWriting
 
 ---
 
-## Consistent test data
+## Aggregate documentation
 
-- In documenting tests, we use a test data catalog defined by TechWriting.
-- Centralized yml files.
+- One repository that composes all public documentation from the relevant microservices
+
+Note:
+- each service emits documentation
+- how can we aggregate this into a single consistent api documentation which is always up-to-date
+
+---
+
+## Aggregate documentation
+
+<img src="assets/aggregate-api-doc.svg" style="border:none;box-shadow:none;" />
+
+Note:
+- on master build emit a separate jar containing snippets and hand-written documentation from each service
+- aggregate the jars relevant for public api doc in the cdp
+- for asciidoc there is an enclosing assiidoctor file referencing parts from the jar
+- publish api doc
 
 ---
 
 <!-- .slide: data-background="assets/achievements.jpg" -->
-## First achievements <!-- .element: style="text-shadow: 3px 3px black;" -->
+## First achievements <!-- .element: style="color:white;" -->
 
-- [Static API documentation](http://docs.beyondshop.cloud/) available on our
-[developer portal](https://developer.epages.com)
+---
+
+## First achievements
+
+- [Static API documentation](http://docs.beyondshop.cloud/) available on our [developer portal](https://developer.epages.com)
 - Good starting point to work with partners
 
 ---
 
 <!-- .slide: data-background="assets/more.jpg" -->
-## We want more <!-- .element: style="text-shadow: 3px 3px black;" -->
+## We want to go further <!-- .element: style="color:white;" -->
 
-- API docs should be a nice appetizer to start using our product <!-- .element: class="fragment" -->
-- We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
-- <!-- .element: class="fragment" --> We need to go **interactive**!
+Notes:
+- We need to add use case based documentation
+- API docs should be a nice appetizer to start using our product
+- We cannot achieve this with a static documentation
+- We need to go **interactive**!
 
 ---
 
-## Why RAML?
+## A machine readable API description?
 
 - AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
 - It is hard to get any further than static HTML <!-- .element: class="fragment" -->
-- A technical exchange format is what we need <!-- .element: class="fragment" -->
-- We already have experience with RAML <!-- .element: class="fragment" -->
+- A machine readable format is what we need <!-- .element: class="fragment" -->
 
 ---
 
@@ -130,7 +168,7 @@ title: Hello world # required title
 
 We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 - To keep the benefits of Spring REST Docs
-- To get a RAML file for our API to process further
+- To get a RAML description of our API
 
 ---
 
@@ -139,14 +177,14 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 ---
 
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Apply restdocs-raml <!-- .element: style="text-shadow: 3px 3px black;" -->
+## restdocs-raml demo <!-- .element: style="color: white;" -->
 
 ---
 
 ## Conclusion
 
-- Adding  restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
-- A RAML representation of an API opens lots of possibilities <!-- .element: class="fragment" -->
+- Adding restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
+- A RAML representation of an API opens a lot of new possibilities <!-- .element: class="fragment" -->
 - Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
 
 ---
@@ -169,5 +207,8 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
+<i class="fab fa-twitter"></i><a href="https://twitter.com/zaddo"> @zaddo</a>
 
-<a href="https://twitter.com/epagesdevs"><i class="fab fa-twitter"></i> @epagesdevs</a>
+<i class="fab fa-twitter"></i><a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
+
+<i class="fab fa-gitter"></i><a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>

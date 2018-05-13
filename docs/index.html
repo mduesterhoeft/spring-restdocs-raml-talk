@@ -2,27 +2,26 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
         <title>RESTful API documentation with Spring REST Docs and RAML</title>
         <link rel="stylesheet" href="./css/reveal.css">
-        <link rel="stylesheet" href="./css/theme/black.css" id="theme">
-        <link rel="stylesheet" href="./css/highlight/zenburn.css">
+        <link rel="stylesheet" href="./css/theme/white.css" id="theme">
+        <link rel="stylesheet" href="./css/highlight/github.css">
         <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
-        <link rel="stylesheet" href="./assets/fa/css/fontawesome-all.min.css">
+          <link rel="stylesheet" href="./_assets/assets/mywhite.css">
+          <link rel="stylesheet" href="./_assets/assets/fa/css/fontawesome-all.min.css">
 
-		<script>
-		  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-		  ':35729/livereload.js?snipver=1"></' + 'script>')
-		</script>
+
     </head>
     <body>
 
         <div class="reveal">
             <div class="slides"><section  data-markdown><script type="text/template">
 
-<!-- .slide: data-background="assets/restdocs-raml.jpg" -->
-## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="text-shadow: 3px 3px black;" -->
+<!-- .slide: data-background="assets/title.png" -->
 </script></section><section  data-markdown><script type="text/template">
-<!-- .slide: data-background="assets/about-us.png" -->
+## it's epages
 </script></section><section  data-markdown><script type="text/template">
 ## Why Spring REST Docs?
 
@@ -31,45 +30,48 @@
 - Works with Spring MVC Test
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Spring REST Docs demo <!-- .element: style="text-shadow: 3px 3px black;" -->
+## Spring REST Docs demo <!-- .element: style="color: white;" -->
 </script></section><section  data-markdown><script type="text/template">
-<!-- .slide: data-background="assets/dream.jpg" -->
-## TechWriters have dreams <!-- .element: style="text-shadow: 3px 3px black;" -->
-</script></section><section  data-markdown><script type="text/template">
-## Can we compile a complete documentation?
-</script></section><section  data-markdown><script type="text/template">
-##  Aggregate service documentation
+<!-- .slide: data-background="assets/towards-public-api-doc.jpg" -->
+## Towards a public API documentation <!-- .element: style="color: white;" -->
 
-One repository that composes all public documentation from the relevant microservices
-</script></section><section  data-markdown><script type="text/template">
-## I'd love to be informed about API changes...
-</script></section><section  data-markdown><script type="text/template">
-## Notification via email
+<aside class="notes"><ul>
+<li>different challenges</li>
+<li>bring tech writers in</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Bring tech writers in
 
-TechWriting owns content in `src/docs` in every service and is notified about .changes
+- Tech writers should not edit descriptions in tests directly.
+- Use externalized descriptors.
+- Centralized yml files in `src/docs`.
 </script></section><section  data-markdown><script type="text/template">
-## I'd like to change descriptions without touching the code...
-</script></section><section  data-markdown><script type="text/template">
-## Externalize texts from tests
+##  Aggregate documentation
 
-Put texts into centralized yml files in `src/docs`.
-</script></section><section  data-markdown><script type="text/template">
-## Can we generate realistic and consistent example responses?
-</script></section><section  data-markdown><script type="text/template">
+- One repository that composes all public documentation from the relevant microservices
+
+<aside class="notes"><ul>
+<li>each service emits documentation</li>
+<li>how can we aggregate?</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template">
 ## Consistent test data
 
 - In documenting tests, we use a test data catalog defined by TechWriting.
 - Centralized yml files.
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/achievements.jpg" -->
-## First achievements <!-- .element: style="text-shadow: 3px 3px black;" -->
+## First achievements <!-- .element: style="color:white;" -->
+</script></section><section  data-markdown><script type="text/template">
+## First achievements
 
-- [Static API documentation](http://docs.beyondshop.cloud/) available on our
-[developer portal](https://developer.epages.com)
+- [Static API documentation](http://docs.beyondshop.cloud/) available on our [developer portal](https://developer.epages.com)
 - Good starting point to work with partners
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/more.jpg" -->
-## We want more <!-- .element: style="text-shadow: 3px 3px black;" -->
+## We want to go further <!-- .element: style="color:white;" -->
+</script></section><section  data-markdown><script type="text/template">
+## We want to go further
 
 - API docs should be a nice appetizer to start using our product <!-- .element: class="fragment" -->
 - We cannot achieve this with a static documentation <!-- .element: class="fragment" -->
@@ -80,7 +82,6 @@ Put texts into centralized yml files in `src/docs`.
 - AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
 - It is hard to get any further than static HTML <!-- .element: class="fragment" -->
 - A technical exchange format is what we need <!-- .element: class="fragment" -->
-- We already have experience with RAML <!-- .element: class="fragment" -->
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/raml.png" -->
 </script></section><section  data-markdown><script type="text/template">
@@ -113,12 +114,12 @@ We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 <!-- .slide: data-background="assets/restdocs-raml-repo.png" style="align:top" -->
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="assets/live-coding.jpeg" -->
-## Apply restdocs-raml <!-- .element: style="text-shadow: 3px 3px black;" -->
+## restdocs-raml demo <!-- .element: style="color: white;" -->
 </script></section><section  data-markdown><script type="text/template">
 ## Conclusion
 
-- Adding  restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
-- A RAML representation of an API opens lots of possibilities <!-- .element: class="fragment" -->
+- Adding restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
+- A RAML representation of an API opens a lot of new possibilities <!-- .element: class="fragment" -->
 - Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
 </script></section><section  data-markdown><script type="text/template">
 ## Reference
@@ -137,8 +138,11 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
+<i class="fab fa-twitter"></i><a href="https://twitter.com/zaddo"> @zaddo</a>
 
-<a href="https://twitter.com/epagesdevs"><i class="fab fa-twitter"></i> @epagesdevs</a>
+<i class="fab fa-twitter"></i><a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
+
+<i class="fab fa-gitter"></i><a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>
 </script></section></div>
         </div>
 
