@@ -50,7 +50,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         whenProductIsAddedToCart();
 
         resultActions
-                .andExpect(status().isNoContent())
+                .andExpect(status().isOk())
         ;
     }
 
@@ -78,7 +78,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         whenCartIsOrdered();
 
         resultActions
-                .andExpect(status().isNoContent())
+                .andExpect(status().isOk())
         ;
     }
 
@@ -122,6 +122,6 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         givenProduct();
         whenProductIsAddedToCart();
 
-        resultActions.andExpect(status().isNoContent());
+        resultActions.andExpect(status().isOk());
     }
 }
