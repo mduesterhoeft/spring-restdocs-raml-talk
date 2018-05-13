@@ -32,9 +32,10 @@ public class CartController {
     private final CartResourceResourceAssembler cartResourceResourceAssembler;
 
     @PostMapping
-    public ResponseEntity<Void> create() {
+    public ResponseEntity<CartResource> create() {
         Cart cart = cartRepository.save(new Cart());
-        return ResponseEntity.created(entityLinks.linkForSingleResource(cart).toUri()).build();
+        return ResponseEntity.created(entityLinks.linkForSingleResource(cart).toUri())
+                .body(cartResourceResourceAssembler.toResource(cart));
     }
 
     @GetMapping("/{cartId}")
@@ -46,18 +47,19 @@ public class CartController {
     }
 
     @PostMapping("/{cartId}/order")
-    public ResponseEntity<?> order(@PathVariable Long cartId) {
+    public ResponseEntity<CartResource> order(@PathVariable Long cartId) {
         return cartRepository.findById(cartId)
                 .map(cart -> {
                     cart.setOrdered(true);
                     return cartRepository.save(cart);
                 })
-                .map(c -> ResponseEntity.noContent().build())
+                .map(cartResourceResourceAssembler::toResource)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping(value = "/{cartId}/products", consumes = TEXT_URI_LIST_VALUE)
-    public ResponseEntity<?> addProducts(@PathVariable Long cartId, @RequestBody Resources<Object> resource) {
+    public ResponseEntity<CartResource> addProducts(@PathVariable Long cartId, @RequestBody Resources<Object> resource) {
         return cartRepository.findById(cartId)
                 .map(cart -> {
                     resource.getLinks().stream()
@@ -69,7 +71,8 @@ public class CartController {
                             .forEach(product -> cart.getProducts().add(product));
                     return cartRepository.save(cart);
                 })
-                .map(c -> ResponseEntity.noContent().build())
+                .map(cartResourceResourceAssembler::toResource)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 }

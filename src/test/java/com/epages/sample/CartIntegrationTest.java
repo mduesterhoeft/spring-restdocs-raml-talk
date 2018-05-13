@@ -61,7 +61,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         whenProductIsAddedToCart();
 
         resultActions
-                .andExpect(status().isNoContent())
+                .andExpect(status().isOk())
                 .andDo(document("cart-add-product",
                         ramlResource("Add products to a cart")))
         ;
@@ -109,7 +109,7 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         whenCartIsOrdered();
 
         resultActions
-                .andExpect(status().isNoContent())
+                .andExpect(status().isOk())
                 .andDo(document("cart-order", ramlResource("Order a cart")))
         ;
     }
@@ -154,6 +154,6 @@ public class CartIntegrationTest extends BaseIntegrationTest {
         givenProduct();
         whenProductIsAddedToCart();
 
-        resultActions.andExpect(status().isNoContent());
+        resultActions.andExpect(status().isOk());
     }
 }
