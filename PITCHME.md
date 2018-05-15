@@ -109,7 +109,7 @@ Note:
 - [Static API documentation](http://docs.beyondshop.cloud/) available on our [developer portal](https://developer.epages.com)
 - Good starting point to work with partners
 
----?image=docs/assets/more.jpg
+---?image=docs/assets/more.jpg&size=auto
 
 ## We want to go further <!-- .element: style="color:white;" -->
 
