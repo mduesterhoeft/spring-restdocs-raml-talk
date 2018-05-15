@@ -1,4 +1,6 @@
----?image=docs/assets/title.png&position=left
+---?image=docs/assets/title.png&size=100%
+
+## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="color: white;" -->
 
 ---?image=docs/assets/epages.png
 
