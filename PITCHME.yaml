@@ -11,5 +11,5 @@ highlight : atom-one-light
 logo : docs/assets/epages-colored.png
 logo-position : top-right
 transition : none
-published : true
+published : slide
 footnote : "Documenting RESTful APIs with Spring REST Docs and RAML"
