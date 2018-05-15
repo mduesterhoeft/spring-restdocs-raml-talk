@@ -8,7 +8,7 @@ theme : simple
 theme-override : docs/assets/css/PITCHME.css
 # theme-override : assets/css/PITCHME.codemax.css
 highlight : atom-one-light
-logo : docs/assets/image/epages-colored.png
+logo : docs/assets/epages-colored.png
 transition : none
 published : true
 footnote : "Documenting RESTful APIs with Spring REST Docs and RAML"
