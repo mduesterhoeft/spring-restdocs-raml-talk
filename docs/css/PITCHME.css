@@ -20,6 +20,10 @@ html:-moz-full-screen-ancestor {
   background-color: #fff;
 }
 
+.reveal {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .reveal pre {
   width: 100%;
   box-shadow : none;
