@@ -1,4 +1,4 @@
----?image=docs/assets/title.png&size=100%
+---?image=docs/assets/title.png&size=auto
 
 ## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="color: white;" -->
 
