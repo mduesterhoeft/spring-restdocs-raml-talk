@@ -2,7 +2,7 @@
 
 ## Documenting RESTful APIs with Spring REST Docs and RAML <!-- .element: style="color: white;" -->
 
----?image=docs/assets/epages.png&size=100%&color=black
+---?image=docs/assets/epages.png&size=cover
 
 --- 
 
