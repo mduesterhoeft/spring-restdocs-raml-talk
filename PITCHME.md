@@ -1,10 +1,8 @@
-@title[title]
-
-# RESTful API documentation with Spring REST Docs and RAML
-
 ---?image=docs/assets/title.png&position=left
 
 ---?image=docs/assets/epages.png&position=left
+
+--- 
 
 ## Why Spring REST Docs?
 
