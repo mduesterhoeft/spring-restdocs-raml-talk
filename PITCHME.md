@@ -15,10 +15,10 @@
 
 @ulend
 
----?image=docs/assets/live-coding.jpeg
+---?image=docs/assets/live-coding.jpeg&size=cover
 ## Spring REST Docs demo <!-- .element: style="color: white;" -->
 
----?image=docs/assets/towards-public-api-doc.jpg
+---?image=docs/assets/towards-public-api-doc.jpg&size=cover
 
 ## Towards a public API documentation <!-- .element: style="color: white;" -->
 
@@ -131,7 +131,7 @@ Note:
 
 @ulend
 
----?image=docs/assets/raml.png
+---?image=docs/assets/raml.png&size=cover
 
 ---
 
@@ -163,7 +163,7 @@ We built [@fa[github] `restdocs-raml`](https://github.com/ePages-de/restdocs-ram
 - To keep the benefits of Spring REST Docs
 - To get a RAML description of our API
 
----?image=docs/assets/restdocs-raml-repo.png
+---?image=docs/assets/restdocs-raml-repo.png&size=cover
 
 ---?image=docs/assets/live-coding.jpeg
 
