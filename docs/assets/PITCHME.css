@@ -8,6 +8,18 @@
 body {
   background: #fff;
   background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+}
+
+.reveal {
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  text-transform: none;
 }
 
 html:-webkit-full-screen-ancestor {
@@ -20,18 +32,11 @@ html:-moz-full-screen-ancestor {
   background-color: #fff;
 }
 
-.reveal {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-}
-
 .reveal pre {
   width: 100%;
-  box-shadow : none;
 }
 
 .reveal pre code {
-  font-size: 1.2em;
-  line-height: 1.2;
   max-height: 50vh !important;
   border-radius: 10px;
 }

@@ -1,23 +1,23 @@
 ---?image=docs/assets/title.png&position=left
 
----?image=docs/assets/epages.png&position=left
+---?image=docs/assets/epages.png
 
 --- 
 
 ## Why Spring REST Docs?
+@ul
 
-- Takes a test-driven approach which guarantees accuracy <!-- .element: class="fragment" -->
-- Uses Asciidoctor by default <!-- .element: class="fragment" -->
-- Works with Spring MVC Test <!-- .element: class="fragment" -->
+- Takes a test-driven approach which guarantees accuracy
+- Uses Asciidoctor by default
+- Works with Spring MVC Test
 
----
+@ulend
 
-<!-- .slide: data-background="assets/live-coding.jpeg" -->
+---?image=docs/assets/live-coding.jpeg
 ## Spring REST Docs demo <!-- .element: style="color: white;" -->
 
----
+---?image=docs/assets/towards-public-api-doc.jpg
 
-<!-- .slide: data-background="assets/towards-public-api-doc.jpg" -->
 ## Towards a public API documentation <!-- .element: style="color: white;" -->
 
 Note:
@@ -87,7 +87,8 @@ Note:
 
 ## Aggregate documentation
 
-<img src="assets/aggregate-api-doc.svg" style="border:none;box-shadow:none;" />
+
+<img src="docs/assets/aggregate-api-doc.png" style="border:none;box-shadow:none;" />
 
 Note:
 - on master build emit a separate jar containing snippets and hand-written documentation from each service
@@ -95,9 +96,8 @@ Note:
 - for asciidoc there is an enclosing assiidoctor file referencing parts from the jar
 - publish api doc
 
----
+---?image=docs/assets/achievements.jpg
 
-<!-- .slide: data-background="assets/achievements.jpg" -->
 ## First achievements <!-- .element: style="color:white;" -->
 
 ---
@@ -107,12 +107,11 @@ Note:
 - [Static API documentation](http://docs.beyondshop.cloud/) available on our [developer portal](https://developer.epages.com)
 - Good starting point to work with partners
 
----
+---?image=docs/assets/more.jpg
 
-<!-- .slide: data-background="assets/more.jpg" -->
 ## We want to go further <!-- .element: style="color:white;" -->
 
-Notes:
+Note:
 - We need to add use case based documentation
 - API docs should be a nice appetizer to start using our product
 - We cannot achieve this with a static documentation
@@ -122,13 +121,15 @@ Notes:
 
 ## A machine readable API description?
 
-- AsciiDoc as a markup language is hard to process <!-- .element: class="fragment" -->
-- It is hard to get any further than static HTML <!-- .element: class="fragment" -->
-- A machine readable format is what we need <!-- .element: class="fragment" -->
+@ul
 
----
+- AsciiDoc as a markup language is hard to process
+- It is hard to get any further than static HTML
+- A machine readable format is what we need
 
-<!-- .slide: data-background="assets/raml.png" -->
+@ulend
+
+---?image=docs/assets/raml.png
 
 ---
 
@@ -156,40 +157,40 @@ title: Hello world # required title
 
 ## Introducing restdocs-raml
 
-We built [`restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
+We built [@fa[github] `restdocs-raml`](https://github.com/ePages-de/restdocs-raml)
 - To keep the benefits of Spring REST Docs
 - To get a RAML description of our API
 
----
+---?image=docs/assets/restdocs-raml-repo.png
 
-<!-- .slide: data-background="assets/restdocs-raml-repo.png" style="align:top" -->
+---?image=docs/assets/live-coding.jpeg
 
----
-
-<!-- .slide: data-background="assets/live-coding.jpeg" -->
 ## restdocs-raml demo <!-- .element: style="color: white;" -->
 
 ---
 
 ## Conclusion
 
-- Adding restdocs-raml to an existing project is easy <!-- .element: class="fragment" -->
-- A RAML representation of an API opens a lot of new possibilities <!-- .element: class="fragment" -->
-- Leverage the tools available in the RAML ecosystem <!-- .element: class="fragment" -->
+@ul
+
+- Adding restdocs-raml to an existing project is easy
+- A RAML representation of an API opens a lot of new possibilities
+- Leverage the tools available in the RAML ecosystem
+
+@ulend
 
 ---
 
 ## Reference
 
-<i class="fab fa-github"></i> Slides<br />
+@fa[github] Slides<br />
 https://mduesterhoeft.github.io/spring-restdocs-raml-talk
 
-<i class="fab fa-github"></i> Sample project<br />
+@fa[github] Sample project<br />
 https://github.com/mduesterhoeft/spring-restdocs-raml-talk
 
-<i class="fab fa-github"></i> restdocs-raml<br />
+@fa[github] restdocs-raml<br />
 https://github.com/ePages-de/restdocs-raml
-
 
 ---
 
@@ -197,8 +198,8 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
-<i class="fab fa-twitter"></i><a href="https://twitter.com/zaddo"> @zaddo</a>
+@fa[twitter]<a href="https://twitter.com/zaddo"> @zaddo</a>
 
-<i class="fab fa-twitter"></i><a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
+@fa[twitter]<a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
 
-<i class="fab fa-gitter"></i><a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>
+@fa[comments]<a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>
