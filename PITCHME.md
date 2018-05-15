@@ -185,8 +185,8 @@ We built [@fa[github] `restdocs-raml`](https://github.com/ePages-de/restdocs-ram
 
 ## Reference
 
-@fa[github] Slides<br />
-https://mduesterhoeft.github.io/spring-restdocs-raml-talk
+@fa[file-powerpoint] Slides<br />
+https://gitpitch.com/mduesterhoeft/spring-restdocs-raml-talk
 
 @fa[github] Sample project<br />
 https://github.com/mduesterhoeft/spring-restdocs-raml-talk
@@ -200,8 +200,8 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
-@fa[twitter]<a href="https://twitter.com/zaddo"> @zaddo</a>
+@fa[twitter][@zaddo](https://twitter.com/zaddo)
 
-@fa[twitter]<a href="https://twitter.com/epagesdevs"> @epagesdevs</a>
+@fa[twitter][@epagesdevs](https://twitter.com/epepagesdevs)
 
-@fa[comments]<a href="https://twitter.com/epagesdevs"> https://gitter.im/restdocs-raml/restdocs-raml</a>
+@fa[comments][](https://gitter.im/restdocs-raml/restdocs-raml)
