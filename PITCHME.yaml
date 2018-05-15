@@ -1,0 +1,15 @@
+#
+# GitPitch Slideshow Custom Settings
+#
+# For details, visit Wiki:
+# https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
+#
+theme : white
+theme-override : docs/assets/PITCHME.css
+# theme-override : assets/css/PITCHME.codemax.css
+highlight : atom-one-light
+logo : docs/assets/epages-colored.png
+logo-position : top-right
+transition : slide
+published : true
+footnote : "Documenting RESTful APIs with Spring REST Docs and RAML"

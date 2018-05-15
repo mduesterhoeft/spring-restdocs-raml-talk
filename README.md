@@ -1,12 +1,16 @@
-# How to produce RAML with Spring REST Docs using restdocs-raml
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/mduesterhoeft/spring-restdocs-raml-talk)
+
+# Documenting RESTful APIs with Spring REST Docs and RAML
 
 This repository is the basis for a talk introducing [restdocs-raml](https://github.com/ePages-de/restdocs-raml) - a project that adds RAML support for [Spring Rest Docs](https://github.com/spring-projects/spring-restdocs).
+
+See also https://2018.springio.net/sessions/documenting-restful-apis-with-spring-rest-docs-and-raml
 
 The talk shows why and how to use it.
 
 ## Presentation 
 
-The slides are available in the [docs](docs/) folder on the `master` branch. They are also available through github pages https://mduesterhoeft.github.io/spring-restdocs-raml-talk/
+https://gitpitch.com/mduesterhoeft/spring-restdocs-raml-talk
 
 ## Branches
 

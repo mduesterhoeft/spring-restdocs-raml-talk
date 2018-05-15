@@ -6,7 +6,7 @@ revealOptions:
     transition: 'fade'
 ---
 
-<!-- .slide: data-background="assets/title.png" -->
+<!-- .slide: data-background="assets/title.png" style="align:top;" -->
 
 ---
 
