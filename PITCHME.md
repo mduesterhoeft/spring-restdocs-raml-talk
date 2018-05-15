@@ -172,12 +172,13 @@ We built [@fa[github] `restdocs-raml`](https://github.com/ePages-de/restdocs-ram
 ---
 
 ## Conclusion
-
+<br >
 
 - @fa[plus-square](Adding restdocs-raml to an existing project is easy)
 - @fa[plus-square](A RAML representation of an API opens a lot of new possibilities)
 - @fa[plus-square](Leverage the tools available in the RAML ecosystem)
 
+<br >
 
 ---
 
