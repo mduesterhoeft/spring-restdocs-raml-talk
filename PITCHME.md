@@ -1,7 +1,7 @@
 ---?image=docs/assets/title.png&size=contain%&position=left
 
 <h2 style="color:white; text-align: left; margin-top: 45%; font-size: 1.4em">Documenting RESTful APIs with Spring REST Docs and RAML</h2>
-
+<h5>Mathias Düsterhöft</h5>
 ---?image=docs/assets/epages.png&size=cover
 
 --- 
