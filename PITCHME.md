@@ -200,8 +200,8 @@ https://github.com/ePages-de/restdocs-raml
 
 Questions?
 
-@fa[twitter][@zaddo](https://twitter.com/zaddo)
+@fa[twitter] [@zaddo](https://twitter.com/zaddo)
 
-@fa[twitter][@epagesdevs](https://twitter.com/epepagesdevs)
+@fa[twitter] [@epagesdevs](https://twitter.com/epepagesdevs)
 
-@fa[comments][https://gitter.im/restdocs-raml/restdocs-raml](https://gitter.im/restdocs-raml/restdocs-raml)
+@fa[comments] [https://gitter.im/restdocs-raml/restdocs-raml](https://gitter.im/restdocs-raml/restdocs-raml)
