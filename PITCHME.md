@@ -1,6 +1,6 @@
 ---?image=docs/assets/title.png&size=contain%&position=left
 
-<span style="color:white; text-align: left; margin-left: 30px; margin-top: 200px;"><h2>Documenting RESTful APIs with Spring REST Docs and RAML</h2></span>
+<h2 style="color:white; text-align: left; margin-left: 30px; margin-top: 200px;">Documenting RESTful APIs with Spring REST Docs and RAML</h2>
 
 ---?image=docs/assets/epages.png&size=cover
 
