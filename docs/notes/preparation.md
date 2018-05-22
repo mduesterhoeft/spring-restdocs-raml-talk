@@ -1,0 +1,4 @@
+- open master 
+- clean
+- open private chrome window
+- open presentation

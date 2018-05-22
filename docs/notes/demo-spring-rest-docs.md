@@ -1,11 +1,7 @@
-Preparation:
-- reset branch
-- clean
-
 - project overview (controller, model)
 - Cart test
 - add document method
-- add carts.adoc
+- show carts.adoc
 - generate doc
 - switch to `restdocs-documented` branch
 - show response field and link documentation for cart-get
