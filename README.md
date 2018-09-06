@@ -8,7 +8,7 @@ See also https://2018.springio.net/sessions/documenting-restful-apis-with-spring
 
 The talk shows why and how to use it.
 
-There is also a recording of the talk available - https://www.youtube.com/watch?v=VwKc34W96Cw
+There is also a recording from the Spring IO 2018 in Barcelona - [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/VwKc34W96Cw/0.jpg)](https://www.youtube.com/watch?v=VwKc34W96Cw)
 
 ## Presentation 
 
