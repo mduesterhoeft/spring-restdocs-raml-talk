@@ -8,6 +8,8 @@ See also https://2018.springio.net/sessions/documenting-restful-apis-with-spring
 
 The talk shows why and how to use it.
 
+There is also a recording of the talk available - https://www.youtube.com/watch?v=VwKc34W96Cw
+
 ## Presentation 
 
 https://gitpitch.com/mduesterhoeft/spring-restdocs-raml-talk
